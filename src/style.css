@@ -1,0 +1,30 @@
+@font-face {
+  font-family: "MyFont";
+  src: url("./caveat-regular-latin.woff2") format("woff2");
+  font-weight: 600;
+  font-style: normal;
+}
+body {
+  background-color: #161619;
+  height: 100vh;
+  width: 100%;
+}
+.hello {
+  color: orange;
+  font-family: "MyFont";
+  background: url("./icon.png");
+
+  display: flex;
+  align-items: center;
+  background-size: 20px;
+  background-repeat: no-repeat;
+  padding-left: 20px;
+  background-position: left center;
+  font-size: 24px;
+}
+.kitty {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  margin-left: 5px;
+}
