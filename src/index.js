@@ -1,6 +1,9 @@
+import "core-js/stable";
+import "regenerator-runtime/runtime";
+
 import _ from "lodash";
 import "./style.css";
-import Kitty from "./kitty.jpg";
+import Kitty from "./img/kitty.jpg";
 
 function component() {
   const element = document.createElement("div");

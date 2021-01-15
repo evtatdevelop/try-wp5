@@ -12,7 +12,7 @@ body {
 .hello {
   color: orange;
   font-family: "MyFont";
-  background: url("./icon.png");
+  background: url("./img/icon.png");
 
   display: flex;
   align-items: center;
