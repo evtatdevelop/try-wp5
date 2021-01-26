@@ -2,12 +2,16 @@ const path = require("path");
 const precss = require("precss");
 const autoprefixer = require("autoprefixer");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = {
-  entry: { app: "./src/index.js" },
+  entry: { app: "./src/js/index.js" },
 
   output: {
-    filename: "[name].[hash:5].js",
+    publicPath: '.',
+    // publicPath: '',
+    filename: "js/[name].[fullhash:5].js",
     path: path.resolve(__dirname, "dist"),
   },
   module: {
@@ -25,8 +29,7 @@ module.exports = {
       {
         test: /\.css$/i,
         use: [
-          "style-loader",
-          "css-loader",
+          MiniCssExtractPlugin.loader, 'css-loader',
           {
             loader: "postcss-loader",
             options: {
@@ -50,22 +53,36 @@ module.exports = {
       // },
       {
         test: /\.svg$/i,
-        type: "asset/resource",
+        // type: "asset/resource",
       },
       {
         test: /\.(png|jpe?g|gif)$/i,
         loader: "file-loader",
         options: {
-          name: "img/[name][hash:5].[ext]",
+          name: "./img/[name].[ext]",
+          // name: "[name].[ext]",
+          // outputPath: "./img",
         },
       },
       {
         test: /\.(woff|woff2|eot|ttf|otf)$/i,
-        type: "asset/resource",
+        // type: "asset/resource",
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              name: './fonts/[name].[ext]',
+              // name: '[name].[ext]',
+              // outputPath: "./fonts",
+            },
+          },
+        ],
       },
     ],
   },
   plugins: [
+    new CleanWebpackPlugin(),
+    new MiniCssExtractPlugin({filename: "css/styles.css"}),
     new HtmlWebpackPlugin({
       title: "My App",
       template: "src/index.html",

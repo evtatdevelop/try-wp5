@@ -2,8 +2,8 @@ import "core-js/stable";
 import "regenerator-runtime/runtime";
 
 import _ from "lodash";
-import "./style.css";
-import Kitty from "./img/kitty.jpg";
+import "../css/style.css";
+import Kitty from "../img/kitty.jpg";
 
 function component() {
   const element = document.createElement("div");
@@ -12,11 +12,10 @@ function component() {
   element.classList.add("hello");
 
   // Add the image to our new div
-  // kittyImg.classList.add("kitty");
-  const myKitty = new Image();
-  myKitty.src = Kitty;
-  myKitty.classList.add("kitty");
-  element.appendChild(myKitty);
+  // const myKitty = new Image();
+  // myKitty.src = Kitty;
+  // myKitty.classList.add("kitty");
+  // element.appendChild(myKitty);
 
   return element;
 }
