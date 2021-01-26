@@ -9,9 +9,9 @@ module.exports = {
   entry: { app: "./src/index.js" },
 
   output: {
-    publicPath: '.',
+    publicPath: '',
     // publicPath: '',
-    filename: "js/[name].[fullhash:5].js",
+    filename: "[name].[fullhash:5].js",
     path: path.resolve(__dirname, "dist"),
   },
   module: {
@@ -59,9 +59,9 @@ module.exports = {
         test: /\.(png|jpe?g|gif)$/i,
         loader: "file-loader",
         options: {
-          name: "./img/[name].[ext]",
-          // name: "[name].[ext]",
-          // outputPath: "./img",
+          // name: "img/[name].[ext]",
+          name: "[name].[ext]",
+          outputPath: "./img",
         },
       },
       {
@@ -71,9 +71,9 @@ module.exports = {
           {
             loader: 'file-loader',
             options: {
-              name: './fonts/[name].[ext]',
-              // name: '[name].[ext]',
-              // outputPath: "./fonts",
+              // name: 'fonts/[name].[ext]',
+              name: '[name].[ext]',
+              outputPath: "./fonts",
             },
           },
         ],
@@ -82,7 +82,7 @@ module.exports = {
   },
   plugins: [
     new CleanWebpackPlugin(),
-    new MiniCssExtractPlugin({filename: "css/styles.css"}),
+    new MiniCssExtractPlugin({filename: "styles.css"}),
     new HtmlWebpackPlugin({
       title: "My App",
       template: "src/index.html",

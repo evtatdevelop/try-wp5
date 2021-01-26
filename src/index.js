@@ -12,10 +12,10 @@ function component() {
   element.innerHTML = _.join(["Hello", "webpack"], " ");
   element.classList.add("hello");
 
-  // const myKitty = new Image();
-  // myKitty.src = Kitty;
-  // myKitty.classList.add("kitty");
-  // element.appendChild(myKitty);
+  const myKitty = new Image();
+  myKitty.src = Kitty;
+  myKitty.classList.add("kitty");
+  element.appendChild(myKitty);
 
   return element;
 }
