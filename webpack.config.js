@@ -1,18 +1,18 @@
-const path = require("path");
-const precss = require("precss");
-const autoprefixer = require("autoprefixer");
-const HtmlWebpackPlugin = require("html-webpack-plugin");
+const path = require('path');
+const precss = require('precss');
+const autoprefixer = require('autoprefixer');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = {
-  entry: { app: "./src/index.js" },
+  entry: { app: './src/index.js' },
 
   output: {
     publicPath: '',
     // publicPath: '',
-    filename: "[name].[fullhash:5].js",
-    path: path.resolve(__dirname, "dist"),
+    filename: '[name].[fullhash:5].js',
+    path: path.resolve(__dirname, 'dist'),
   },
   module: {
     rules: [
@@ -20,9 +20,9 @@ module.exports = {
         test: /\.m?js$/,
         exclude: /node_modules/,
         use: {
-          loader: "babel-loader",
+          loader: 'babel-loader',
           options: {
-            presets: ["@babel/preset-env"],
+            presets: ['@babel/preset-env'],
           },
         },
       },
@@ -31,14 +31,15 @@ module.exports = {
         use: [
           MiniCssExtractPlugin.loader, 'css-loader',
           {
-            loader: "postcss-loader",
+            loader: 'postcss-loader',
             options: {
               postcssOptions: {
                 plugins: [
                   [
-                    "postcss-preset-env",
+                    'postcss-preset-env',
                     {
                       plugins: () => [precss, autoprefixer],
+                      // plugins: () => [precss],
                     },
                   ],
                 ],
@@ -57,11 +58,11 @@ module.exports = {
       },
       {
         test: /\.(png|jpe?g|gif)$/i,
-        loader: "file-loader",
+        loader: 'file-loader',
         options: {
           // name: "img/[name].[ext]",
-          name: "[name].[ext]",
-          outputPath: "./img",
+          name: '[name].[ext]',
+          outputPath: './img',
         },
       },
       {
@@ -73,7 +74,7 @@ module.exports = {
             options: {
               // name: 'fonts/[name].[ext]',
               name: '[name].[ext]',
-              outputPath: "./fonts",
+              outputPath: './fonts',
             },
           },
         ],
@@ -82,11 +83,12 @@ module.exports = {
   },
   plugins: [
     new CleanWebpackPlugin(),
-    new MiniCssExtractPlugin({filename: "styles.css"}),
+    new MiniCssExtractPlugin({ filename: 'styles.css' }),
     new HtmlWebpackPlugin({
-      title: "My App",
-      template: "src/index.html",
+      title: 'My App',
+      template: 'src/index.html',
+      favicon: 'src/favicon.ico',
     }),
   ],
-  mode: "development",
+  mode: 'development',
 };

@@ -1,12 +1,19 @@
 {
-  "extends": "eslint:recommended",
   "env": {
     "browser": true,
     "node": true,
     "es6": true
   },
+  "extends": ["airbnb/base"],
   "rules": {
-    "no-console": 0,
-    "indent": ["warning", 2]
+    // "no-console": "error",
+    // "semi": "off"
+    // "no-plusplus": "off",
+    // "eol-last": "off",
+    "max-len": ["error", 150, {"ignoreUrls": true}]
+    // "no-tabs": "off",
+    // "no-alert": "off",
+    // "prefer-destructuring": "off",
+    // "indent": [2, "tab"]
   }
 }
